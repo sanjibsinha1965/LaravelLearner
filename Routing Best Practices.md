@@ -25,3 +25,17 @@ To get hold of all 'home' controller we can do another thing. Considering that '
 
 Route::resource('home', 'HomeController');
 
+Suppose you have a folder structure like that:
+
+app/routes/admin.php
+app/routes/login.php
+app/routes/register.php
+
+Now we can declare this structure in your 'routes.php' in a single command like this:
+
+foreach(File::allFiles(_DIR_, '/routes') as $partial)
+{
+	require_once $partial->getPathname;
+}
+
+
